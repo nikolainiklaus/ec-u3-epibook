@@ -1,12 +1,13 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import CustomNavbar from "./components/CustomNavbar";
 import CustomFooter from "./components/CustomFooter";
 import HeroSection from "./components/HeroSection";
-import BookSection from "./components/BookSection";
+// import BookSection from "./components/BookSection";
 import SingleBook from "./components/SingleBook";
 import romance from "./data/fantasy.json";
+import horror from "./data/horror.json";
 import BookList from "./components/BookList";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function App() {
   const singleBook = romance[2];
@@ -15,9 +16,9 @@ function App() {
     <div className="App">
       <CustomNavbar />
       <HeroSection />
-      <BookList books={romance} />
+      <BookList books={horror} />
       <SingleBook book={singleBook} />
-      {/* className="book-img" */}
+      {/* <BookSection /> */}
       <CustomFooter />
     </div>
   );

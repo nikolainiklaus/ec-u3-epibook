@@ -60,3 +60,12 @@
 .hero-text {
   font-size: 50px;
 }
+
+.not-selected {
+  background-color: white;
+}
+
+.selected {
+  background-color: beige;
+  border-color: black;
+}
