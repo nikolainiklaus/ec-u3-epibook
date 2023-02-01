@@ -13,7 +13,8 @@ class BookSection extends Component {
   state = {
     selectedCategory: fantasy,
   };
-  render() {
+  render()
+   {
     return (
       <Container fluid>
         <Button
