@@ -6,6 +6,7 @@ import HeroSection from "./components/HeroSection";
 import BookSection from "./components/BookSection";
 import SingleBook from "./components/SingleBook";
 import romance from "./data/fantasy.json";
+import BookList from "./components/BookList";
 
 function App() {
   const singleBook = romance[2];
@@ -14,8 +15,9 @@ function App() {
     <div className="App">
       <CustomNavbar />
       <HeroSection />
+      <BookList books={romance} />
       <SingleBook book={singleBook} />
-      <BookSection />
+      {/* className="book-img" */}
       <CustomFooter />
     </div>
   );
