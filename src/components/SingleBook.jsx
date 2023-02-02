@@ -1,7 +1,9 @@
 import { Component } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Badge";
+import CommentArea from "./CommentArea";
+import CommentsList from "./CommentsList";
+import AddComment from "./AddComment";
 
 // const SingleBook = (props) => {
 //   return (
@@ -17,11 +19,59 @@ import Button from "react-bootstrap/Badge";
 //   );
 // };
 
+// class SingleBook extends Component {
+//   state = {
+//     selected: false,
+//     className: "not-selected",
+//   };
+//   render() {
+//     return (
+//       <Col className="mb-5" xs={12} md={3} lg={2}>
+//         <Card className={this.state.className}>
+//           <Card.Img
+//             className="book-img"
+//             variant="top"
+//             src={this.props.book.img}
+//             onClick={() => {
+//               if (this.state.selected === false) {
+//                 this.setState({
+//                   selected: true,
+//                   className: "selected",
+//                 });
+//               } else {
+//                 this.setState({
+//                   selected: false,
+//                   className: "not-selected",
+//                 });
+//               }
+//             }}
+//           />
+//           <Card.Body>
+//             {/* <Card.Title>{book.title}</Card.Title> */}
+//             <Card.Text>{this.props.book.title}</Card.Text>
+//           </Card.Body>
+//         </Card>
+//       </Col>
+//     );
+//   }
+// }
+
 class SingleBook extends Component {
   state = {
     selected: false,
     className: "not-selected",
+    comments: [],
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      prevState.selected !== this.state.selected &&
+      this.state.selected === true
+    ) {
+      // fetch comments for selected book here and update state
+    }
+  }
+
   render() {
     return (
       <Col className="mb-5" xs={12} md={3} lg={2}>
@@ -49,8 +99,15 @@ class SingleBook extends Component {
             <Card.Text>{this.props.book.title}</Card.Text>
           </Card.Body>
         </Card>
+        {this.state.selected && (
+          <CommentArea bookId={this.props.book.asin}>
+            <CommentsList bookId={this.props.book.asin} />
+            <AddComment />
+          </CommentArea>
+        )}
       </Col>
     );
   }
 }
+
 export default SingleBook;
