@@ -1,19 +1,8 @@
 import SingleBook from "./SingleBook";
-import Row from "react-bootstrap/Row";
+
+import { Row, Col } from "react-bootstrap";
 import { Component } from "react";
-import { Container, InputGroup, Form, Alert } from "react-bootstrap";
-
-// const BookList = (props) => {
-//   const allBooks = props.books;
-
-//   return (
-//     <Row xs={12} className="mt-5">
-//       {allBooks.map((book) => (
-//         <SingleBook book={book} />
-//       ))}
-//     </Row>
-//   );
-// };
+import { InputGroup, Form } from "react-bootstrap";
 
 class BookList extends Component {
   state = {
@@ -22,9 +11,9 @@ class BookList extends Component {
   render() {
     const allBooks = this.props.books;
     return (
-      <Container fluid>
+      <Col className="bklist" xs={8}>
         <div>
-          <InputGroup className="mb-3">
+          <InputGroup className="mb-3, pt-4">
             <InputGroup.Text id="inputGroup-sizing-default">
               Search for a book
             </InputGroup.Text>
@@ -47,21 +36,13 @@ class BookList extends Component {
                 .toLowerCase()
                 .includes(this.state.searchTerm.toLowerCase())
             ) {
-              return <SingleBook book={book} />;
+              return (
+                <SingleBook changeBook={this.props.changeBook} book={book} />
+              );
             }
           })}
         </Row>
-
-        {/* <Row xs={12} className="mt-5">
-          {allBooks.map((book) => {
-            if (book.title.includes(this.state.searchTerm)) {
-              return <SingleBook book={book} />;
-            } else {
-              console.log("no entries");
-            }
-          })}
-        </Row> */}
-      </Container>
+      </Col>
     );
   }
 }

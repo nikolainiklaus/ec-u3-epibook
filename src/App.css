@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  position: relative;
 }
 
 .App-logo {
@@ -72,6 +73,8 @@
 
 .comment-title {
   text-align: left;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .comment {
@@ -99,4 +102,23 @@
 
 .submit-form {
   display: flex;
+}
+
+.sticky {
+  width: 430px;
+  top: 0;
+  background-color: rgb(234, 234, 234);
+  border-radius: 20px;
+  margin-left: 10px;
+}
+
+.relative {
+  position: relative;
+}
+
+.bklist {
+  background-color: rgba(239, 195, 202, 0.34);
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }

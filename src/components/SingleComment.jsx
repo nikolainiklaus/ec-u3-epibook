@@ -28,12 +28,12 @@ const SingleComment = ({ comment }) => {
       <p className="comment">
         "{comment.comment}" | {comment.rate}/5
       </p>
-      <ahref
+      <button
         className="delete-button"
         onClick={() => deleteComment(comment._id)}
       >
         🗑️
-      </ahref>
+      </button>
     </div>
   );
 };
