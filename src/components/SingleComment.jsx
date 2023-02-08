@@ -1,6 +1,8 @@
 import React from "react";
 
 const SingleComment = ({ comment }) => {
+
+  
   const deleteComment = async (commentId) => {
     try {
       const response = await fetch(
@@ -14,7 +16,7 @@ const SingleComment = ({ comment }) => {
         }
       );
       if (response.ok) {
-        this.getComments();
+        console.log("ok");
       } else {
         console.log("error while deleting");
       }
